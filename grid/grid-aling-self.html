@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid alings - self</title>
+</head>
+<style>
+    /*
+        align the grid items, in any available space of the cell where it lives but it is applied directly to the grid item
+    */
+    body, html {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline:0;
+        height: 100%;
+        width: 100%;
+        font-family: sans-serif;
+    }
+
+    .container {
+        background: black;
+        width: 98vw;
+        height: 80vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+
+    .container > div {
+        background-color: #7159c1;
+        height: 50%;
+        width: 50%;
+    }
+
+    .center{
+        justify-self: start;
+        align-self: start;
+    }
+
+    select {
+        padding: 8px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div>
+        <h3>Modify</h3>
+    </div>
+    <div>
+        <select id="horizontal" onchange="modify();">
+            <option value="start"> Horizontal aline (start)</option>
+            <option value="end"> Horizontal aline (end)</option>
+            <option value="center"> Horizontal aline (Center)</option>
+        </select>
+        <select id="vertical" onchange="modify();">
+            <option value="start"> Vertical aline (start)</option>
+            <option value="end"> Vertical aline (end)</option>
+            <option value="center"> Vertical aline (Center)</option>
+        </select>
+        align the grid items, in any available space of the cell where it lives but it is applied directly to the grid item
+    </div>
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="center"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        function modify()
+        {
+            var posHori = $('#horizontal').val();
+            var posVertical = $('#vertical').val();
+
+            $('.center').css({"justify-self" : posHori, "align-self" : posVertical});
+        }
+    </script>
+</body>
+</html>
