@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid alings - content</title>
+    <title>Grid alings - items</title>
 </head>
 <style>
+    /*
+        align the grid items, in any available space of the cell that it inhabits
+    */
     body, html {
         box-sizing: border-box;
         margin: 0;
@@ -21,15 +24,17 @@
         width: 98vw;
         height: 80vh;
         display: grid;
-        grid-template-columns: 10px 10px 10px;
-        grid-template-rows: 10px 10px 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         grid-gap: 10px;
-        justify-content: start;
-        align-content: start;
+        justify-items: start;
+        align-items: start;
     }
 
     .container > div {
         background-color: #7159c1;
+        height: 50%;
+        width: 50%;
     }
     select {
         padding: 8px;
@@ -58,7 +63,7 @@
             <option value="space-around"> Vertical aline (space-around)</option>
             <option value="space-evenly"> Horizontal aline (space-evenly)</option>
         </select>
-         align the grid itself in the relative space outside the grid
+        align the grid items, in any available space of the cell that it inhabits
     </div>
     <div class="container">
         <div></div>
@@ -78,7 +83,7 @@
             var posHori = $('#horizontal').val();
             var posVertical = $('#vertical').val();
 
-            $('.container').css({"justify-content" : posHori, "align-content" : posVertical});
+            $('.container').css({"justify-items" : posHori, "align-items" : posVertical});
         }
     </script>
 </body>
