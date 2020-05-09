@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid division</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline:0;
+    }
+    .container {
+        display: grid;
+        width: 100vw;
+        /* 
+            Creates 2 columns. The first with 3 parts of the screen and the second with 1 part of the screen
+         */
+        grid-template-columns: 3fr 1fr;
+        /*
+            Creates 3 rows. The first row with "20% of the screen visible", the second row with "70% of the screen visible"
+            and finally the third row with "10% of the screen visible"
+        */
+        grid-template-rows: 20vh 70vh 10vh;
+
+        /*
+            Defines positions of the elements html created to defined grid.
+        */
+        grid-template-areas: 'header header'
+                             'main aside'
+                             'footer footer';
+    }
+    body {
+        background: burlywood;
+    }
+    header {
+        background: brown;
+        grid-area: header;
+    }
+
+    main {
+        background: blue;
+        grid-area: main;
+    }
+
+    aside {
+        background: chartreuse;
+        grid-area: aside;
+    }
+
+    footer {
+        background: coral;
+        grid-area: footer;
+    }
+</style>
+<body>
+    <div class="container">
+        <header></header>
+        <main></main>
+        <aside></aside>
+        <footer></footer>
+    </div>
+</body>
+</html>
