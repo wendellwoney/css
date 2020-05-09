@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid alings - content</title>
+</head>
+<style>
+    body, html {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline:0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .container {
+        background: black;
+        width: 98vw;
+        height: 80vh;
+        display: grid;
+        grid-template-columns: 10px 10px 10px;
+        grid-template-rows: 10px 10px 10px;
+        grid-gap: 10px;
+        justify-content: start;
+        align-content: start;
+    }
+
+    .container > div {
+        background-color: #7159c1;
+    }
+    select {
+        padding: 8px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div>
+        <h3>Modify</h3>
+    </div>
+    <div>
+        <select id="horizontal" onchange="modify();">
+            <option value="start"> Horizontal aline (start)</option>
+            <option value="end"> Horizontal aline (end)</option>
+            <option value="center"> Horizontal aline (Center)</option>
+            <option value="space-between"> Horizontal aline (space-between)</option>
+            <option value="space-around"> Horizontal aline (space-around)</option>
+            <option value="space-around"> Horizontal aline (space-evenly)</option>
+        </select>
+        <select id="vertical" onchange="modify();">
+            <option value="start"> Vertical aline (start)</option>
+            <option value="end"> Vertical aline (end)</option>
+            <option value="center"> Vertical aline (Center)</option>
+            <option value="space-between"> Vertical aline (space-between)</option>
+            <option value="space-around"> Vertical aline (space-around)</option>
+        </select>
+    </div>
+    <div class="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        function modify()
+        {
+            var posHori = $('#horizontal').val();
+            var posVertical = $('#vertical').val();
+
+            $('.container').css({"justify-content" : posHori, "align-content" : posVertical});
+        }
+    </script>
+</body>
+</html>
